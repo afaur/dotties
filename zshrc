@@ -1,4 +1,4 @@
-ZSH_THEME="avit"
+ZSH_THEME="candy"
 export PATH="$HOME/.bin:$PATH"
 export ZSH=~/.oh-my-zsh
 
@@ -19,3 +19,7 @@ plugins=(rbenv nvm autojump)
 source $ZSH/oh-my-zsh.sh
 
 [[ -f ~/.zshrc.env ]] && source ~/.zshrc.env
+
+if [ -x /usr/libexec/path_helper ]; then
+  eval `/usr/libexec/path_helper -s`
+fi

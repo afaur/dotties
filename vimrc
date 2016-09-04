@@ -2,7 +2,9 @@
 let mapleader = " "
 
 syntax on
-colorscheme solarized
+colorscheme jellybeans
+
+highlight Normal guibg=black guifg=white
 
 au BufRead,BufNewFile *.es6 setfiletype javascript
 
