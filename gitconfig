@@ -1,0 +1,31 @@
+[user]
+  name = Adam Faur
+  email = adam.faur@gmail.com
+  signingkey = FCF52B19
+[alias]
+  aa = add --all
+  ap = add --patch
+  ci = commit -v
+  ca = commit -v --amend
+  co = checkout
+  pf = push --force-with-lease
+  st = status
+  lg = log --stat --summary --show-signature
+  cleanup = !git fetch origin && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
+  open = !vim `git show --pretty="format:" --name-only HEAD`
+  work = config user.email "adam.faur@vitals.com"
+  fixup = commit --fixup
+  squash = commit --squash
+  review = !sh -c 'reflog-review'
+[push]
+  default = current
+[merge]
+  ff = only
+[fetch]
+  prune = true
+[filter "lfs"]
+  clean = git-lfs clean %f
+  smudge = git-lfs smudge %f
+  required = true
+[commit]
+  gpgsign = true
