@@ -13,6 +13,8 @@ Plug 'moll/vim-node'
 " Syntax Highlighting
 Plug 'vim-scripts/applescript.vim'
 Plug 'elixir-lang/vim-elixir'
+Plug 'rust-lang/rust.vim'
+Plug 'derekwyatt/vim-scala'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'

@@ -23,3 +23,5 @@ source $ZSH/oh-my-zsh.sh
 if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 fi
+
+source $HOME/.cargo/env
