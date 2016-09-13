@@ -19,6 +19,8 @@ plugins=(rbenv nvm autojump)
 
 source $ZSH/oh-my-zsh.sh
 
+export PKG_CONFIG_PATH="/usr/local/lib;/usr/local/lib/pkgconfig"
+
 [[ -f ~/.zshrc.env ]] && source ~/.zshrc.env
 
 if [ -x /usr/libexec/path_helper ]; then
