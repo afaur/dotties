@@ -83,3 +83,13 @@ set mouse=a
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
+
+" Save and close a file without quitting vim
+nnoremap <C-W> :w<bar>bd<CR>
+
+" Move a line of text up or down
+nnoremap <C-J> :m+<CR>
+nnoremap <C-K> :m-2<CR>
+
+" Reload vimrc
+nnoremap <C-R> :source $MYVIMRC<CR>
