@@ -1,0 +1,2 @@
+#!/bin/bash
+/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --test-type --ignore-certificate-errors --remote-debugging-port=9222
