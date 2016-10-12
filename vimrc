@@ -85,7 +85,7 @@ set mouse=a
 let g:airline#extensions#tabline#enabled = 1
 
 " Save and close a file without quitting vim
-nnoremap <C-W> :w<bar>bd<CR>
+nnoremap <leader>w :w<bar>bd<CR>
 
 " Move a line of text up or down
 nnoremap <C-J> :m+<CR>
