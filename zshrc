@@ -2,9 +2,6 @@ ZSH_THEME="candy"
 export PATH="$HOME/.bin:$PATH"
 export ZSH=~/.oh-my-zsh
 
-alias ls="exa"
-alias cls="clear"
-
 setnvm() {
  if [ "$PWD" != "$MYOLDPWD" ]; then
    MYOLDPWD="$PWD";
@@ -88,5 +85,16 @@ export PKG_CONFIG_PATH="/usr/local/lib;/usr/local/lib/pkgconfig"
 if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 fi
+
+alias ls="exa"
+alias cls="clear"
+
+function getip {
+  # Ping whatever site was passed as the first argument
+  # Strip the ip address returned from the output
+  # Remove newlines from the end of the response output
+  # Copy the returned value to the clipboard
+  ping -c 1 $1 | grep "64 bytes from " | awk '{print $4}' | cut -d":" -f1 | tr -d "\n" | pbcopy
+}
 
 #source $HOME/.cargo/env
