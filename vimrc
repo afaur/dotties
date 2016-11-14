@@ -93,3 +93,6 @@ nnoremap <C-K> :m-2<CR>
 
 " Reload vimrc
 nnoremap <C-R> :source $MYVIMRC<CR>
+
+" Increase amount of ctrlp results
+let g:ctrlp_match_window = 'min:4,max:30,results:100'

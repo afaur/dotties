@@ -86,6 +86,7 @@ if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 fi
 
+<<<<<<< af37662c4b9fc64e8a14e49ca9412b18496906fd
 alias ls="exa"
 alias cls="clear"
 
@@ -98,3 +99,11 @@ function getip {
 }
 
 #source $HOME/.cargo/env
+=======
+source $HOME/.cargo/env
+
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+
+export NVM_DIR="/Users/afaur/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+>>>>>>> Incremental commit
