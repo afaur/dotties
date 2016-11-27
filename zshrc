@@ -24,7 +24,7 @@ source $ZSH/oh-my-zsh.sh
 # -- Begin Prompt configuration --
 
 # Colors - Color White, etc
-export CB=$'%{$fg[blue]%}'
+export CB=$'%{$fg_bold[blue]%}'
 export CBB=$'%{$fg_bold[blue]%}'
 export CBG=$'%{$fg_bold[green]%}'
 export CW=$'%{$fg[white]%}'
@@ -99,7 +99,7 @@ function getip {
   ping -c 1 $1 | grep "64 bytes from " | awk '{print $4}' | cut -d":" -f1 | tr -d "\n" | pbcopy
 }
 
-#source $HOME/.cargo/env
+source $HOME/.cargo/env
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
