@@ -104,7 +104,11 @@ function chkport {
   lsof -n -i:$1 | grep LISTEN
 }
 
-source $HOME/.cargo/env
+# If cargo/rust installed source cargo env
+[[ -f ~/.cargo/env ]] && source ~/.cargo/env
 
-[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# If virtualenvwrapper installed source it
+[[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
+# Use latest vim if installed using brew
+[[ -f /usr/local/bin/vim ]] && alias vim="/usr/local/bin/vim"
