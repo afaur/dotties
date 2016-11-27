@@ -99,6 +99,11 @@ function getip {
   ping -c 1 $1 | grep "64 bytes from " | awk '{print $4}' | cut -d":" -f1 | tr -d "\n" | pbcopy
 }
 
+function chkport {
+  # Checks what application if any is listening on a port
+  lsof -n -i:$1 | grep LISTEN
+}
+
 source $HOME/.cargo/env
 
 [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
