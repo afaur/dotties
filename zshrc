@@ -88,7 +88,7 @@ if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 fi
 
-alias ls="exa"
+alias ls="~/.bin/exa"
 alias cls="clear"
 
 function getip {
