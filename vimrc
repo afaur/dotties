@@ -96,3 +96,13 @@ nnoremap <C-R> :source $MYVIMRC<CR>
 
 " Increase amount of ctrlp results
 let g:ctrlp_match_window = 'min:4,max:30,results:100'
+
+" Setup Vimux
+function! MuxSend()
+  call inputsave()
+  let command = input('Enter command: ')
+  call inputrestore()
+  call VimuxRunCommand(command)
+endfunction
+
+nnoremap <leader>m :call MuxSend()<CR>

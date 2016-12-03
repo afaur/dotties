@@ -3,12 +3,12 @@ Plug 'nanotech/jellybeans.vim'
 
 " Utility
 Plug 'bling/vim-airline'
-Plug 'Lokaltog/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'ihacklog/HiCursorWords'
 Plug 'tpope/vim-sleuth'
 Plug 'pmsorhaindo/syntastic-local-eslint.vim'
 Plug 'moll/vim-node'
+Plug 'benmills/vimux'
 
 " Syntax Highlighting
 Plug 'vim-scripts/applescript.vim'
