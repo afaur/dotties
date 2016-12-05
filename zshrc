@@ -90,6 +90,7 @@ fi
 
 alias ls="~/.bin/exa"
 alias cls="clear"
+alias json="python -m json.tool | pygmentize -l javascript"
 
 function getip {
   # Ping whatever site was passed as the first argument
