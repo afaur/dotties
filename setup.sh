@@ -72,3 +72,6 @@ nvm use 0.10.32
 # meteor
 curl https://install.meteor.com/ | sh
 sudo npm install -g meteorite
+
+# json
+easy_install pygmentize
