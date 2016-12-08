@@ -16,6 +16,7 @@ Sys pref -> power sv -> disable hd sleep etc
 
 brew cask install chrome
 : '
+  - Install signal
   - Install vimium
   - Install react dev tools
   - Install meteor dev tools
@@ -37,10 +38,13 @@ brew cask isntall skitch
 brew cask install boom
 brew cask install iterm
   # iTerm2 -> make iterm2 default term from iterm2 menu
+
 # Install superpowers
 # Install Pages
 # Install Pixen
 # Install Keynote
+# Install Steam
+# Yubikey piv
 
 brew install cmake
 brew install git
@@ -51,6 +55,9 @@ brew install jq
 brew install ag
 brew install htop
 brew install reattach-to-user-namespace
+
+# Install Dart
+brew install dart-lang/dart/dart
 
 # oh my zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
