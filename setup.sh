@@ -20,6 +20,7 @@ brew cask install chrome
   - Install vimium
   - Install react dev tools
   - Install meteor dev tools
+  - Install Moqups
   - Turn off both use prediction service options under privacy
   - Turn off use a web service to help resolve nav errors
   - Turn off let anyone add a person to chrome
@@ -80,5 +81,8 @@ nvm use 0.10.32
 curl https://install.meteor.com/ | sh
 sudo npm install -g meteorite
 
+# Lets us uninstall python packages
+easy_install pip
+
 # json
-easy_install pygmentize
+easy_install pygments
