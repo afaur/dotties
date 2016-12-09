@@ -45,6 +45,8 @@ brew cask install iterm
 # Install Pixen
 # Install Keynote
 # Install Steam
+# Install Virtualbox
+# Install Vagrant
 # Yubikey piv
 
 brew install cmake
@@ -56,6 +58,10 @@ brew install jq
 brew install ag
 brew install htop
 brew install reattach-to-user-namespace
+
+# Install packer
+brew tap homebrew/binary
+brew install packer
 
 # Install Dart
 brew install dart-lang/dart/dart
