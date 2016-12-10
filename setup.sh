@@ -47,6 +47,9 @@ brew cask install iterm
 # Install Steam
 # Install Virtualbox
 # Install Vagrant
+  # Install plugin to allow file scp into vagrant controlled boxes
+  # Usage: vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
+  # vagrant plugin install vagrant-scp
 # Yubikey piv
 
 brew install cmake

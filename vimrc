@@ -87,6 +87,9 @@ let g:airline#extensions#tabline#enabled = 1
 " Save and close a file without quitting vim
 nnoremap <leader>w :w<bar>bd<CR>
 
+" Save the current file when accidently stuck in readonly mode
+nnoremap <leader>W :w ! sudo tee %<CR>
+
 " Reload vimrc
 nnoremap <C-R> :source $MYVIMRC<CR>
 
