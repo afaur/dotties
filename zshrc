@@ -105,7 +105,7 @@ function chkport {
   lsof -n -i:$1 | grep LISTEN
 }
 
-# If dotties is installed create easy commit alias
+# If dotties is installed then make some functions
 if [[ -d ~/.dotties/packages/afaur-dotties ]] ; then
   function dcommit {
     cd ~/.dotties/packages/afaur-dotties && \
@@ -113,7 +113,16 @@ if [[ -d ~/.dotties/packages/afaur-dotties ]] ; then
     git remote add origin git@github.com:afaur/dotties.git && \
     git add -A && \
     git commit -m $1 && \
-    #git push && \
+    cd -
+  }
+  function dpush {
+    cd ~/.dotties/packages/afaur-dotties && \
+    git push && \
+    cd -
+  }
+  function dedit {
+    cd ~/.dotties/packages/afaur-dotties && \
+    vim && \
     cd -
   }
 fi
