@@ -108,8 +108,17 @@ function chkport {
 # If cargo/rust installed source cargo env
 [[ -f ~/.cargo/env ]] && source ~/.cargo/env
 
+# If Haxe is installed then set the haxe std path variable
+[[ -x "$(command -v haxe)" ]] && export HAXE_STD_PATH="/usr/local/lib/haxe/std"
+
+# If air sdk is installed then add the bin directory to the path
+[[ -f ~/.AIRSDK/bin/adl ]] && export PATH="/Users/afaur/.AIRSDK/bin:$PATH"
+
 # If virtualenvwrapper installed source it
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
+
+# If rvm install source it
+[[ -f /etc/profile.d/rvm.sh ]] && source /etc/profile.d/rvm.sh
 
 # Use latest vim if installed using brew
 [[ -f /usr/local/bin/vim ]] && alias vim="/usr/local/bin/vim"

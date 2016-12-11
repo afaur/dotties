@@ -40,6 +40,15 @@ brew cask install boom
 brew cask install iterm
   # iTerm2 -> make iterm2 default term from iterm2 menu
 
+# Flash air sdk
+# https://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2
+
+# Flash air normal
+# https://airdownload.adobe.com/air/mac/download/23.0/AdobeAIR.dmg
+
+# Flash projector debugger
+# https://fpdownload.macromedia.com/pub/flashplayer/updaters/23/flashplayer_23_sa_debug.dmg
+
 # Install superpowers
 # Install Pages
 # Install Pixen
@@ -61,6 +70,11 @@ brew install jq
 brew install ag
 brew install htop
 brew install reattach-to-user-namespace
+
+# Install Haxe and set haxelib install path
+brew install HaxeFoundation/haxe/haxe-3.2.1
+mkdir -p ~/.haxe/haxelib
+haxelib setup /Users/afaur/.haxe/haxelib
 
 # Install packer
 brew tap homebrew/binary
