@@ -105,6 +105,19 @@ function chkport {
   lsof -n -i:$1 | grep LISTEN
 }
 
+# If dotties is installed create easy commit alias
+if [[ -d ~/.dotties/packages/afaur-dotties ]] ; then
+  function dcommit {
+    cd ~/.dotties/packages/afaur-dotties && \
+    git remote rm origin && \
+    git remote add origin git@github.com:afaur/dotties.git && \
+    git add -A && \
+    git commit -m $1 && \
+    #git push && \
+    cd -
+  }
+fi
+
 # If cargo/rust installed source cargo env
 [[ -f ~/.cargo/env ]] && source ~/.cargo/env
 
