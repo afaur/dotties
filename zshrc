@@ -90,7 +90,10 @@ fi
 
 alias ls="~/.bin/exa"
 alias cls="clear"
-alias json="python -m json.tool | pygmentize -l javascript"
+
+# Depending on what is installed make a json alias (jq is best so it overrides)
+[[ -x $(command -v pygmentize) ]] && alias json="python -m json.tool | pygmentize -l javascript"
+[[ -x $(command -v jq) ]] && alias json="jq"
 
 function getip {
   # Ping whatever site was passed as the first argument
