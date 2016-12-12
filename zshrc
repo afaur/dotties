@@ -110,12 +110,21 @@ function chkport {
 
 # If dotties is installed then make some functions
 if [[ -d ~/.dotties/packages/afaur-dotties ]] ; then
-  function dcommit {
+  function dssh {
     cd ~/.dotties/packages/afaur-dotties && \
     git remote rm origin && \
     git remote add origin git@github.com:afaur/dotties.git && \
+    cd -
+  }
+  function dcommit {
+    cd ~/.dotties/packages/afaur-dotties && \
     git add -A && \
     git commit -m $1 && \
+    cd -
+  }
+  function dpull {
+    cd ~/.dotties/packages/afaur-dotties && \
+    git pull && \
     cd -
   }
   function dpush {
