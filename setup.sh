@@ -42,6 +42,7 @@ brew cask install iterm
 
 # Flash air sdk
 # https://airdownload.adobe.com/air/mac/download/latest/AIRSDK_Compiler.tbz2
+# Rename extracted folder to .AIRSDK and move to ~/
 
 # Flash air normal
 # https://airdownload.adobe.com/air/mac/download/23.0/AdobeAIR.dmg
