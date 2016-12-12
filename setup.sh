@@ -1,7 +1,4 @@
-#Setting up Mac for first time
-# Mac - turn on tap to click
-# Copy over pgp/gpg key
-# Copy over ssh key
+# Setting up Mac for first time
 
 : '
 Sys pref -> keyboard -> increase key repeat and delay until
@@ -12,6 +9,9 @@ Sys pref -> mouse (aft connected -> turn on right side click
 Sys pref -> sec and priv -> general -> require pass immediately
 Sys pref -> keyboard -> modifier -> caps lock should be option
 Sys pref -> power sv -> disable hd sleep etc
+Mac - turn on tap to click
+Copy over pgp/gpg key
+Copy over ssh key
 '
 
 brew cask install chrome
@@ -54,12 +54,12 @@ brew cask install iterm
 # Install Pixen
 # Install Keynote
 # Install Steam
+# Install Yubikey piv
 # Install Virtualbox
 # Install Vagrant
   # Install plugin to allow file scp into vagrant controlled boxes
   # Usage: vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
   # vagrant plugin install vagrant-scp
-# Yubikey piv
 
 brew install cmake
 brew install git
@@ -71,9 +71,17 @@ brew install ag
 brew install htop
 brew install reattach-to-user-namespace
 
+# Use jq for pretty json
+brew install jq
+
 # Install Haxe and set haxelib install path
-brew install HaxeFoundation/haxe/haxe-3.2.1
+#   Older version
+#     brew install HaxeFoundation/haxe/haxe-3.2.1
+#   Newer version: Install here until brew formula is updated
+#     https://haxe.org/download/file/3.4.0-rc.1/haxe-3.4.0-rc.1-osx-installer.pkg
+#   Create haxelib directory to store packages
 mkdir -p ~/.haxe/haxelib
+#   Tell haxelib to use that directory
 haxelib setup /Users/afaur/.haxe/haxelib
 
 # Install packer
@@ -106,6 +114,3 @@ sudo npm install -g meteorite
 
 # Lets us uninstall python packages
 easy_install pip
-
-# json
-easy_install pygments
