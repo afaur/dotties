@@ -35,7 +35,7 @@ brew cask install visual-studio-code
 brew cask install screenhero
 brew cask install ableton-live
 brew cask install cycling74-max
-brew cask isntall skitch
+brew cask install skitch
 brew cask install boom
 brew cask install iterm
   # iTerm2 -> make iterm2 default term from iterm2 menu
