@@ -78,6 +78,7 @@ brew install jq
 # Use jenv for managing java sdk
 brew install jenv
 # jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+# jenv global oracle64-1.8.0.112
 
 # Install Haxe and set haxelib install path
 #   Older version
