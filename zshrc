@@ -2,7 +2,7 @@ ZSH_THEME="candy"
 export PATH="$HOME/.bin:$PATH"
 export ZSH=~/.oh-my-zsh
 
-export NVM_DIR="~/.nvm"
+export NVM_DIR="`echo ~`/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PKG_CONFIG_PATH="/usr/local/lib;/usr/local/lib/pkgconfig"
