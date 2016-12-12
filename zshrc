@@ -2,8 +2,8 @@ ZSH_THEME="candy"
 export PATH="$HOME/.bin:$PATH"
 export ZSH=~/.oh-my-zsh
 
-export NVM_DIR="/Users/afaur/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NVM_DIR="~/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PKG_CONFIG_PATH="/usr/local/lib;/usr/local/lib/pkgconfig"
 
@@ -88,7 +88,7 @@ if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
 fi
 
-alias ls="~/.bin/exa"
+alias ll="~/.bin/exa"
 alias cls="clear"
 
 # Depending on what is installed make a json alias (jq is best so it overrides)
