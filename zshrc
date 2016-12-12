@@ -114,6 +114,7 @@ if [[ -d ~/.dotties/packages/afaur-dotties ]] ; then
     cd ~/.dotties/packages/afaur-dotties && \
     git remote rm origin && \
     git remote add origin git@github.com:afaur/dotties.git && \
+    git branch --set-upstream-to=origin/master && \
     cd -
   }
   function dcommit {
