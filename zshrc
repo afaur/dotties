@@ -167,8 +167,12 @@ fi
 # If virtualenvwrapper installed source it
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
-# If rvm install source it
+# If rvm installed source it
 [[ -f /etc/profile.d/rvm.sh ]] && source /etc/profile.d/rvm.sh
+
+# If jenv installed add to path and init it
+[[ -d $HOME/.jenv/bin ]] && export PATH="$HOME/.jenv/bin:$PATH"
+[[ -x "$(command -v jenv)" ]] && eval "$(jenv init -)"
 
 # Use latest vim if installed using brew
 [[ -f /usr/local/bin/vim ]] && alias vim="/usr/local/bin/vim"

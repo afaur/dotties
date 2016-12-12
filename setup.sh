@@ -75,6 +75,10 @@ brew install reattach-to-user-namespace
 # Use jq for pretty json
 brew install jq
 
+# Use jenv for managing java sdk
+brew install jenv
+# jenv add /Library/Java/JavaVirtualMachines/jdk1.8.0_112.jdk/Contents/Home
+
 # Install Haxe and set haxelib install path
 #   Older version
 #     brew install HaxeFoundation/haxe/haxe-3.2.1
