@@ -2,8 +2,9 @@ ZSH_THEME="candy"
 export PATH="$HOME/.bin:$PATH"
 export ZSH=~/.oh-my-zsh
 
-export NVM_DIR="`echo ~`/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"  # This loads nvm
+# Load nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"
 
 export PKG_CONFIG_PATH="/usr/local/lib;/usr/local/lib/pkgconfig"
 
@@ -109,45 +110,45 @@ function chkport {
 }
 
 # If dotties is installed then make some functions
-if [[ -d ~/.dotties/packages/afaur-dotties ]] ; then
+MY_DOTTIES_DIR="$HOME/.dotties/packages/afaur-dotties"
+if [[ -d $MY_DOTTIES_DIR ]] ; then
   function dssh {
-    cd ~/.dotties/packages/afaur-dotties && \
-    git remote rm origin && \
-    git remote add origin git@github.com:afaur/dotties.git && \
+    cd $MY_DOTTIES_DIR && \
+    git-ssh afaur/dotties && \
     git branch --set-upstream-to=origin/master && \
     cd -
   }
   function dcommit {
-    cd ~/.dotties/packages/afaur-dotties && \
+    cd $MY_DOTTIES_DIR && \
     git add -A && \
     git commit -m $1 && \
     cd -
   }
   function dpull {
-    cd ~/.dotties/packages/afaur-dotties && \
+    cd $MY_DOTTIES_DIR && \
     git pull && \
     cd -
   }
   function dpush {
-    cd ~/.dotties/packages/afaur-dotties && \
+    cd $MY_DOTTIES_DIR && \
     git push && \
     cd -
   }
   function dedit {
-    cd ~/.dotties/packages/afaur-dotties && \
+    cd $MY_DOTTIES_DIR && \
     vim && \
     cd -
   }
 fi
 
 # If cargo/rust installed source cargo env
-[[ -f ~/.cargo/env ]] && source ~/.cargo/env
+[[ -f $HOME/.cargo/env ]] && source ~/.cargo/env
 
 # If Haxe is installed then set the haxe std path variable
 [[ -x "$(command -v haxe)" ]] && export HAXE_STD_PATH="/usr/local/lib/haxe/std"
 
 # If air sdk is installed then add the bin directory to the path
-[[ -f ~/.AIRSDK/bin/adl ]] && export PATH="/Users/afaur/.AIRSDK/bin:$PATH"
+[[ -f $HOME/.AIRSDK/bin/adl ]] && export PATH="$HOME/.AIRSDK/bin:$PATH"
 
 # If virtualenvwrapper installed source it
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
