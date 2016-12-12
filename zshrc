@@ -112,10 +112,24 @@ function chkport {
 # If dotties is installed then make some functions
 MY_DOTTIES_DIR="$HOME/.dotties/packages/afaur-dotties"
 if [[ -d $MY_DOTTIES_DIR ]] ; then
+  function dhelp {
+    echo "Commands";
+    echo "dssh, dclean, dreset, dcommit 'msg', dpull, dpush, dedit";
+  }
   function dssh {
     cd $MY_DOTTIES_DIR && \
     git-ssh afaur/dotties && \
     git branch --set-upstream-to=origin/master && \
+    cd -
+  }
+  function dclean {
+    cd $MY_DOTTIES_DIR && \
+    git clean -df && \
+    cd -
+  }
+  function dreset {
+    cd $MY_DOTTIES_DIR && \
+    git reset --hard origin/master && \
     cd -
   }
   function dcommit {
