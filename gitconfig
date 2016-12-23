@@ -1,7 +1,3 @@
-[user]
-  name = Adam Faur
-  email = adam.faur@gmail.com
-  signingkey = FCF52B19
 [alias]
   aa = add --all
   ap = add --patch
@@ -13,7 +9,6 @@
   lg = log --stat --summary --show-signature
   cleanup = !git fetch origin && git reset --hard origin/`git rev-parse --abbrev-ref HEAD`
   open = !vim `git show --pretty="format:" --name-only HEAD`
-  work = config user.email "adam.faur@vitals.com"
   fixup = commit --fixup
   squash = commit --squash
   review = !sh -c 'reflog-review'
@@ -27,5 +22,5 @@
   clean = git-lfs clean %f
   smudge = git-lfs smudge %f
   required = true
-[commit]
-  gpgsign = true
+[include]
+	path = /Users/afaur/.afaur-gitconfig

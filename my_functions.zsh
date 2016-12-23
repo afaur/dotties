@@ -4,6 +4,41 @@ alias ll="~/.bin/exa"
 # Make `cls` be a shortcut to running `clear`
 alias cls="clear"
 
+# Write our individual settings to the gitconfig file
+function dgitconfig () {
+  if ! [[ -z $GITHUB_USERNAME ]] && \
+     ! [[ -z $GITHUB_FULLNAME ]] && \
+     ! [[ -z $GITHUB_EMAIL ]] && \
+     ! [[ -z $GITHUB_GPG_SIGN_KEY ]] && \
+     ! [[ -z $GITHUB_GPG_SHOULD_SIGN ]] ; then
+
+    # Create a non tracked custom gitconfig
+    export GITHUB_CUSTOM_GITCONFIG="$HOME/.${GITHUB_USERNAME}-gitconfig"
+
+    git config \
+      --file="$GITHUB_CUSTOM_GITCONFIG" \
+      user.name $GITHUB_FULLNAME
+
+    git config \
+      --file="$GITHUB_CUSTOM_GITCONFIG" \
+      user.email $GITHUB_EMAIL
+
+    git config \
+      --file="$GITHUB_CUSTOM_GITCONFIG" \
+      user.signingkey $GITHUB_GPG_SIGN_KEY
+
+    git config \
+      --file="$GITHUB_CUSTOM_GITCONFIG" \
+      commit.gpgsign $GITHUB_GPG_SHOULD_SIGN
+
+    # Include my not tracked custom gitconfig from my tracked one
+    git config \
+      --file="$MY_DOTTIES_DIR/gitconfig" \
+      include.path $GITHUB_CUSTOM_GITCONFIG
+
+  fi
+}
+
 # Allows us to change node version based on project .nvmrc
 function setnvm () {
  if [ "$PWD" != "$MYOLDPWD" ]; then
@@ -97,7 +132,6 @@ function chkport {
 }
 
 # If dotties is installed then make some functions
-MY_DOTTIES_DIR="$HOME/.dotties/packages/afaur-dotties"
 if [[ -d $MY_DOTTIES_DIR ]] ; then
   function dhelp {
     echo "Commands";
