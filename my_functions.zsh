@@ -39,6 +39,13 @@ function dgitconfig () {
   fi
 }
 
+# Game Audio Create - Takes a wav file and creates both
+# ogg and m4a leveraging ffmpeg
+function gacreate () {
+  ffmpeg -i "$1" -c:a libfdk_aac -b:a 128k "$(echo $1 | cut -f 1 -d '.').m4a"
+  ffmpeg -i "$1" -c:a libvorbis -qscale:a 5 "$(echo $1 | cut -f 1 -d '.').ogg"
+}
+
 # Allows us to change node version based on project .nvmrc
 function setnvm () {
  if [ "$PWD" != "$MYOLDPWD" ]; then
