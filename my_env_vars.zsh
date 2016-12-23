@@ -7,10 +7,6 @@ export PATH="$HOME/.bin:$PATH"
 # Tell zsh where oh-my-zsh is
 export ZSH="$HOME/.oh-my-zsh"
 
-# Load nvm
-export NVM_DIR="$HOME/.nvm"
-[ -f $NVM_DIR/nvm.sh ] && source "$NVM_DIR/nvm.sh"
-
 # Lets pkg-config program know where pkgconfig meta data is located
 export PKG_CONFIG_PATH="/usr/local/lib;/usr/local/lib/pkgconfig"
 

@@ -5,7 +5,7 @@
 [[ -f $HOME/.my_functions.zsh ]] && source "$HOME/.my_functions.zsh"
 
 # Add my custom zshrc private env variables if they are present in the home dir
-[[ -f ~/.zshrc.env ]] && source ~/.zshrc.env
+[[ -f $HOME/.zshrc.env ]] && source ~/.zshrc.env
 
 # If the path_helper binary exists use it to help with command path resolution
 if [ -x /usr/libexec/path_helper ]; then
