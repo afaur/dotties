@@ -70,6 +70,7 @@ brew install tmate
 brew install jq
 brew install ag
 brew install htop
+brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
 brew install reattach-to-user-namespace
 
 # Use jq for pretty json
