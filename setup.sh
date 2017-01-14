@@ -50,6 +50,31 @@ brew cask install iterm
 # Flash projector debugger
 # https://fpdownload.macromedia.com/pub/flashplayer/updaters/23/flashplayer_23_sa_debug.dmg
 
+# Install Epic Games Launcher (to install unreal engine)
+# Install Gobbler2 (for Softube audio plugins)
+# Install Audio Overload
+# Install OpenToonz (art animation stuido)
+# Install WinSkin wrapped
+  # - NanoFL
+  # - RO Origins
+# Install PortingKit
+# Install Wacom Tablet
+# Install SynfigStudio
+# Install AnimationDesk
+# Install Citra-qt (local dev of homebrew 3DS)
+# Install SoundFlower 2.0b2
+# Install Daz3d
+# Install Blender
+# Install Sculptris Alpha 6
+# Install XCode
+# Install Keka
+# Install Aria Maestosa
+# Install XQuartz
+# Install Inkscape
+# Install MediBangPaintPro
+# Install FireAlpaca
+# Install Bfxr
+# Install Synthesia
 # Install superpowers
 # Install Pages
 # Install Pixen
@@ -62,6 +87,9 @@ brew cask install iterm
   # Usage: vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
   # vagrant plugin install vagrant-scp
 
+brew install pkgconfig
+brew install sdl2
+brew install qt5
 brew install cmake
 brew install git
 brew install vim
@@ -70,8 +98,14 @@ brew install tmate
 brew install jq
 brew install ag
 brew install htop
+brew install tree
+brew install autojump
 brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
 brew install reattach-to-user-namespace
+brew install wget
+
+# Lets us uninstall python packages
+easy_install pip
 
 # Use jq for pretty json
 brew install jq
@@ -119,5 +153,3 @@ nvm use 0.10.32
 curl https://install.meteor.com/ | sh
 sudo npm install -g meteorite
 
-# Lets us uninstall python packages
-easy_install pip
