@@ -17,6 +17,7 @@ Plug 'rust-lang/rust.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'kchmck/vim-coffee-script'
 Plug 'jdonaldson/vaxe'
+Plug 'briancollins/vim-jst'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'
