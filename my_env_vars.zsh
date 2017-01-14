@@ -16,6 +16,12 @@ export plugins=(rbenv nvm autojump)
 # Lets pkg-config program know where pkgconfig meta data is located
 export PKG_CONFIG_PATH="/usr/local/lib;/usr/local/lib/pkgconfig"
 
+# Lets config our devkitpro paths for nds and 3nds local dev
+export PATH="$PATH:/opt/devkitpro/devkitARM/bin"
+export DEVKITPRO="/opt/devkitpro/"
+export DEVKITARM="/opt/devkitpro/devkitARM/"
+export CTRULIB="/opt/devkitpro/libctru/"
+
 # Path to my dotties
 export MY_DOTTIES_DIR="$HOME/.dotties/packages/${GITHUB_USERNAME}-dotties"
 
