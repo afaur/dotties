@@ -39,6 +39,18 @@ function dgitconfig () {
   fi
 }
 
+# Extract Payload from inside of a pkg
+function epackage () {
+  pkgutil --expand "$1.pkg" "/tmp/$1"
+  echo "Files extracted to: /tmp/$1"
+}
+
+# Extract Payload from inside of a pkg
+function epayload () {
+  pbzx -n Payload | cpio -i
+  echo "Files extracted to current directory"
+}
+
 # Game Audio Create - Takes a wav file and creates both
 # ogg and m4a leveraging ffmpeg
 function gacreate () {
