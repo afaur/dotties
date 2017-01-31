@@ -50,6 +50,7 @@ brew cask install iterm
 # Flash projector debugger
 # https://fpdownload.macromedia.com/pub/flashplayer/updaters/23/flashplayer_23_sa_debug.dmg
 
+# Install Xamarin
 # Install Epic Games Launcher (to install unreal engine)
 # Install Gobbler2 (for Softube audio plugins)
 # Install Audio Overload
@@ -152,4 +153,3 @@ nvm use 0.10.32
 # meteor
 curl https://install.meteor.com/ | sh
 sudo npm install -g meteorite
-
