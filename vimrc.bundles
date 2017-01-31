@@ -18,6 +18,7 @@ Plug 'derekwyatt/vim-scala'
 Plug 'kchmck/vim-coffee-script'
 Plug 'jdonaldson/vaxe'
 Plug 'briancollins/vim-jst'
+Plug 'dart-lang/dart-vim-plugin'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'
