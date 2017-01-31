@@ -47,7 +47,14 @@ function epackage () {
 
 # Extract Payload from inside of a pkg
 function epayload () {
-  pbzx -n Payload | cpio -i
+  # Two possible ways payloads could be compressed
+  pbzx -n Payload
+  if [ $? -eq 0 ]
+  then
+    pbzx -n Payload | cpio -i
+  else
+    cat Payload | gzip -d | cpio -id
+  fi
   echo "Files extracted to current directory"
 }
 
