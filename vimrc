@@ -91,7 +91,13 @@ nnoremap <leader>w :w<bar>bd<CR>
 nnoremap <leader>W :w ! sudo tee %<CR>
 
 " Reload vimrc
-nnoremap <C-R> :source $MYVIMRC<CR>
+nnoremap <C-U> :source $MYVIMRC<CR>
+
+" Default tab settings
+nnoremap <C-T> :set ts=2 sts=2 sw=2 expandtab smarttab<CR>
+
+" CSS selectors
+nnoremap <C-S> :'<,'>s:  .*:& !important:g
 
 " Increase amount of ctrlp results
 let g:ctrlp_match_window = 'min:4,max:30,results:100'

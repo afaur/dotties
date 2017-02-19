@@ -4,6 +4,9 @@ alias ll="~/.bin/exa"
 # Make `cls` be a shortcut to running `clear`
 alias cls="clear"
 
+# Make `sl` become `ls`
+alias sl="ls"
+
 # Write our individual settings to the gitconfig file
 function dgitconfig () {
   if ! [[ -z $GITHUB_USERNAME ]] && \
