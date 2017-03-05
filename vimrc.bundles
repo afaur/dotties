@@ -20,6 +20,7 @@ Plug 'jdonaldson/vaxe'
 Plug 'briancollins/vim-jst'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'digitaltoad/vim-pug'
+Plug 'tikhomirov/vim-glsl'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'
