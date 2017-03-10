@@ -104,6 +104,7 @@ brew install autojump
 brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
 brew install reattach-to-user-namespace
 brew install wget
+brew install couchdb
 
 # Lets us uninstall python packages
 easy_install pip
