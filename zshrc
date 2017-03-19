@@ -34,3 +34,6 @@ fi
 
 # Use latest vim if installed using brew
 [[ -f /usr/local/bin/vim ]] && alias vim="/usr/local/bin/vim"
+
+# Use luaver if installed
+[[ -f /usr/local/bin/luaver ]] && source /usr/local/bin/luaver

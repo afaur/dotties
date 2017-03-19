@@ -105,6 +105,8 @@ brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --w
 brew install reattach-to-user-namespace
 brew install wget
 brew install couchdb
+brew install rbenv
+brew install luaver
 
 # Lets us uninstall python packages
 easy_install pip
