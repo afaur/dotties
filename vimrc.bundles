@@ -23,6 +23,8 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'digitaltoad/vim-pug'
 Plug 'tikhomirov/vim-glsl'
 Plug 'wavded/vim-stylus'
+Plug 'pangloss/vim-javascript'
+Plug 'neoclide/vim-jsx-improve'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'
