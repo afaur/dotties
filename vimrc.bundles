@@ -9,6 +9,7 @@ Plug 'tpope/vim-sleuth'
 Plug 'pmsorhaindo/syntastic-local-eslint.vim'
 Plug 'moll/vim-node'
 Plug 'benmills/vimux'
+Plug 'mattn/emmet-vim'
 
 " Syntax Highlighting
 Plug 'vim-scripts/applescript.vim'
@@ -21,6 +22,7 @@ Plug 'briancollins/vim-jst'
 Plug 'dart-lang/dart-vim-plugin'
 Plug 'digitaltoad/vim-pug'
 Plug 'tikhomirov/vim-glsl'
+Plug 'wavded/vim-stylus'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'
