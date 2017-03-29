@@ -107,6 +107,7 @@ brew install wget
 brew install couchdb
 brew install rbenv
 brew install httpie
+brew install lynx
 
 # Lets us uninstall python packages
 easy_install pip
