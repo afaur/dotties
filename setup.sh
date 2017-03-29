@@ -106,7 +106,7 @@ brew install reattach-to-user-namespace
 brew install wget
 brew install couchdb
 brew install rbenv
-brew install luaver
+brew install httpie
 
 # Lets us uninstall python packages
 easy_install pip
