@@ -7,6 +7,9 @@ alias cls="clear"
 # Make `sl` become `ls`
 alias sl="ls"
 
+# Make `tree` ignore node_modules
+alias tree="tree -I 'node_modules'"
+
 # Write our individual settings to the gitconfig file
 function dgitconfig () {
   if ! [[ -z $GITHUB_USERNAME ]] && \
