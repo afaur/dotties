@@ -39,7 +39,7 @@ if executable('ag')
   set grepprg=ag\ --nogroup\ --nocolor
 
   " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" %s'
+  let g:ctrlp_user_command = 'ag -Q -l --nocolor --hidden -g "" --ignore ".*gitkeep" %s'
 
   " ag is fast enough that CtrlP doesn't need to cache
   let g:ctrlp_use_caching = 0
@@ -100,7 +100,7 @@ nnoremap <C-T> :set ts=2 sts=2 sw=2 expandtab smarttab<CR>
 nnoremap <C-S> :'<,'>s:  .*:& !important:g
 
 " Increase amount of ctrlp results
-let g:ctrlp_match_window = 'min:4,max:30,results:100'
+let g:ctrlp_match_window = 'min:4,max:20,results:30'
 
 " Setup Vimux
 function! MuxSend()
