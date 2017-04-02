@@ -4,6 +4,9 @@
 # Setup my custom functions and prompt configuration
 [[ -f $HOME/.my_functions.zsh ]] && source "$HOME/.my_functions.zsh"
 
+# Setup my custom keyboard combo shortcuts
+[[ -f $HOME/.my_shortcuts.zsh ]] && source "$HOME/.my_shortcuts.zsh"
+
 # If the path_helper binary exists use it to help with command path resolution
 if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
