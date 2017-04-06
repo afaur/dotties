@@ -10,6 +10,20 @@ alias sl="ls"
 # Make `tree` ignore node_modules
 alias tree="tree -I 'node_modules'"
 
+# First vim run should becomde a listen server for any file open requests
+function run_vim {
+  $VIM_PATH --serverlist | grep -q VIM
+  if [ $? -eq 0 ]; then
+    if [ $# -eq 0 ]; then
+      $VIM_PATH
+    else
+      $VIM_PATH --remote "$@"
+    fi
+  else
+    $VIM_PATH --servername vim "$@"
+  fi
+}
+
 # Write our individual settings to the gitconfig file
 function dgitconfig () {
   if ! [[ -z $GITHUB_USERNAME ]] && \

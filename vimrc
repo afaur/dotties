@@ -105,7 +105,8 @@ nnoremap <C-S> :'<,'>s:  .*:& !important:g
 " If not in macvim
 if has("gui_macvim") == 0
   " Building vim w/ +clientserver and +clipboard
-  " will not work properly with a mac at all
+  " may not work properly with your mac
+  " (ensure xquartz installed and pasteboard settings are set)
   if has('clientserver')
     " Define an alternate method for copy and paste
     vnoremap <C-c> :w !pbcopy<CR><CR>
