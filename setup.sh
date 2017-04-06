@@ -92,16 +92,19 @@ brew install pkgconfig
 brew install sdl2
 brew install qt5
 brew install cmake
+brew install boost
 brew install git
-brew install vim
+brew install python
+brew install mvim
+brew install vim --with-client-server
 brew install tmux
 brew install tmate
+brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
 brew install jq
 brew install ag
 brew install htop
 brew install tree
 brew install autojump
-brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
 brew install reattach-to-user-namespace
 brew install wget
 brew install couchdb

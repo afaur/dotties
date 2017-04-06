@@ -1,6 +1,9 @@
 " Leader
 let mapleader = " "
 
+" LocalLeader
+let maplocalleader = "\\"
+
 syntax on
 colorscheme jellybeans
 
@@ -8,11 +11,11 @@ highlight Normal guibg=black guifg=white
 
 au BufRead,BufNewFile *.es6 setfiletype javascript
 
+set clipboard+=unnamedplus,unnamed,autoselect
 set nowrap
-set synmaxcol=200     " Limit syntax highlighting to lines under 200 chars
-set clipboard=unnamed " Use system clipboard
+set synmaxcol=200         " Limit syntax highlighting to lines under 200 chars
 set background=dark
-set backspace=2       " Backspace deletes like most programs in insert mode
+set backspace=2           " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
 set noswapfile
@@ -98,6 +101,21 @@ nnoremap <C-T> :set ts=2 sts=2 sw=2 expandtab smarttab<CR>
 
 " CSS selectors
 nnoremap <C-S> :'<,'>s:  .*:& !important:g
+
+" If not in macvim
+if has("gui_macvim") == 0
+  " Building vim w/ +clientserver and +clipboard
+  " will not work properly with a mac at all
+  if has('clientserver')
+    " Define an alternate method for copy and paste
+    vnoremap <C-c> :w !pbcopy<CR><CR>
+    noremap <C-v> :r !pbpaste<CR><CR>
+    " Hack to override y and Y with pipe to system clip
+    " Does not work perfectly in all situations
+    " vnoremap y ygv"+y <bar> :'<,'>w !pbcopy<CR><CR>
+    " nnoremap Y y$v$"+y$ <bar> :'<,'>w !pbcopy<CR><CR>
+  endif
+endif
 
 " Increase amount of ctrlp results
 let g:ctrlp_match_window = 'min:4,max:20,results:30'

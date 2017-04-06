@@ -25,5 +25,8 @@ export CTRULIB="/opt/devkitpro/libctru/"
 # Path to my dotties
 export MY_DOTTIES_DIR="$HOME/.dotties/packages/${GITHUB_USERNAME}-dotties"
 
+# Path where a macvim provided vim may be
+export MACVIM_VIM="/usr/local/Cellar/macvim/8.0-130/MacVim.app/Contents/MacOS/Vim"
+
 # Initialize oh-my-zsh
 source $ZSH/oh-my-zsh.sh

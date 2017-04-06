@@ -10,6 +10,7 @@ Plug 'pmsorhaindo/syntastic-local-eslint.vim'
 Plug 'moll/vim-node'
 Plug 'benmills/vimux'
 Plug 'mattn/emmet-vim'
+Plug 'lervag/vimtex'
 
 " Syntax Highlighting
 Plug 'vim-scripts/applescript.vim'

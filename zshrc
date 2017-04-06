@@ -17,7 +17,7 @@ fi
 [[ -x $(command -v jq) ]] && alias json="jq"
 
 # If cargo/rust installed source cargo env
-[[ -f $HOME/.cargo/env ]] && source ~/.cargo/env
+[[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 
 # If Haxe is installed then set the haxe std path variable
 [[ -x "$(command -v haxe)" ]] && export HAXE_STD_PATH="/usr/local/lib/haxe/std"
@@ -37,3 +37,6 @@ fi
 
 # Use latest vim if installed using brew
 [[ -f /usr/local/bin/vim ]] && alias vim="/usr/local/bin/vim"
+
+# Prefer macvim provided vim binary if installed
+[[ -f $MACVIM_VIM ]] && alias vim="$MACVIM_VIM"
