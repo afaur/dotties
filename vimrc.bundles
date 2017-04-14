@@ -26,6 +26,7 @@ Plug 'tikhomirov/vim-glsl'
 Plug 'wavded/vim-stylus'
 Plug 'pangloss/vim-javascript'
 Plug 'neoclide/vim-jsx-improve'
+Plug 'keith/swift.vim'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'

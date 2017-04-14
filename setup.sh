@@ -80,6 +80,7 @@ brew cask install iterm
 # Install Pages
 # Install Pixen
 # Install Keynote
+# Install Postman
 # Install Steam
 # Install Yubikey piv
 # Install Virtualbox
@@ -89,14 +90,17 @@ brew cask install iterm
   # vagrant plugin install vagrant-scp
 
 brew install pkgconfig
+brew install p7zip
+brew install bazel
 brew install sdl2
 brew install qt5
 brew install cmake
 brew install boost
 brew install git
 brew install python
+brew install neovim/neovim/neovim
 brew install mvim
-brew install vim --with-client-server
+brew install vim
 brew install tmux
 brew install tmate
 brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
@@ -114,6 +118,9 @@ brew install lynx
 
 # Lets us uninstall python packages
 easy_install pip
+
+# Install lxml
+pip install lxml
 
 # Use jq for pretty json
 brew install jq
