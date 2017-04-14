@@ -36,7 +36,10 @@ fi
 [[ -x "$(command -v jenv)" ]] && eval "$(jenv init -)"
 
 # Use latest vim if installed using brew
-[[ -f $VIM_PATH ]] && alias vim="run_vim"
+[[ -f $VIM_PATH ]] && alias vim=$VIM_PATH
 
-# Prefer macvim provided vim binary if installed
-# [[ -f $MACVIM_VIM_PATH ]] && alias vim="$MACVIM_VIM_PATH"
+# Use macvim provided vim binary if installed
+#[[ -f $MACVIM_VIM_PATH ]] && alias vim=$MACVIM_VIM_PATH
+
+# Use function for mvim (clientserver)
+[[ -f $MACVIM_VIM_PATH ]] && alias mvim="run_mvim"

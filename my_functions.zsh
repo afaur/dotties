@@ -10,17 +10,17 @@ alias sl="ls"
 # Make `tree` ignore node_modules
 alias tree="tree -I 'node_modules'"
 
-# First vim run should becomde a listen server for any file open requests
-function run_vim {
-  $VIM_PATH --serverlist | grep -q VIM
+# First mvim run should become a listen server for any file open requests
+function run_mvim {
+  mvim --serverlist | grep -q VIM
   if [ $? -eq 0 ]; then
     if [ $# -eq 0 ]; then
-      $VIM_PATH
+      mvim
     else
-      $VIM_PATH --remote "$@"
+      mvim --remote "$@"
     fi
   else
-    $VIM_PATH --servername vim "$@"
+    mvim --servername VIM "$@"
   fi
 }
 
@@ -217,7 +217,11 @@ if [[ -d $MY_DOTTIES_DIR ]] ; then
   }
   function dedit {
     cd $MY_DOTTIES_DIR && \
-    vim && \
+    $VIM_PATH && \
     cd -
+  }
+  function dbrowse {
+    _l=`pwd`
+    cd $MY_DOTTIES_DIR
   }
 fi

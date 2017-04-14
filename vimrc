@@ -11,7 +11,14 @@ highlight Normal guibg=black guifg=white
 
 au BufRead,BufNewFile *.es6 setfiletype javascript
 
-set clipboard+=unnamedplus,unnamed,autoselect
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+  if has("unnamedplus") " X11 support
+    set clipboard+=unnamedplus
+  endif
+endif
+
 set nowrap
 set synmaxcol=200         " Limit syntax highlighting to lines under 200 chars
 set background=dark
