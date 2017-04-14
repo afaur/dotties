@@ -7,6 +7,9 @@
 # Setup my custom keyboard combo shortcuts
 [[ -f $HOME/.my_shortcuts.zsh ]] && source "$HOME/.my_shortcuts.zsh"
 
+# Setup my conditional custom installer scripts
+[[ -f $HOME/.my_installers.zsh ]] && source "$HOME/.my_installers.zsh"
+
 # If the path_helper binary exists use it to help with command path resolution
 if [ -x /usr/libexec/path_helper ]; then
   eval `/usr/libexec/path_helper -s`
@@ -34,6 +37,11 @@ fi
 # If jenv installed add to path and init it
 [[ -d $HOME/.jenv/bin ]] && export PATH="$HOME/.jenv/bin:$PATH"
 [[ -x "$(command -v jenv)" ]] && eval "$(jenv init -)"
+
+# Link my vim files to neo vim if not already linked
+[[ ! -s $HOME/.config/nvim ]] \
+  && ln -s ~/.vim ~/.config/nvim \
+  && ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # Use latest vim if installed using brew
 [[ -f $VIM_PATH ]] && alias vim=$VIM_PATH
