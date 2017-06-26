@@ -172,10 +172,19 @@ curl https://sh.rustup.rs -sSf | sh
 rustup install stable
 
 # nvm
-curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.32.1/install.sh | bash
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.2/install.sh | bash
+
+# node@7
 nvm install 0.10.32
-nvm alias default 0.10.32
-nvm use 0.10.32
+nvm install 7
+nvm install 8
+
+# Set default
+nvm alias default 7
+nvm use 7
+
+# Allows vim-flow to check js
+npm install -g flow eslint babel-eslint eslint-plugin-flowtype
 
 # meteor
 curl https://install.meteor.com/ | sh
