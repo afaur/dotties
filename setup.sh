@@ -36,6 +36,7 @@ brew cask install screenhero
 brew cask install ableton-live
 brew cask install cycling74-max
 brew cask install skitch
+brew cask install xquartz
 brew cask install boom
 brew cask install iterm
   # iTerm2 -> make iterm2 default term from iterm2 menu
@@ -89,32 +90,44 @@ brew cask install iterm
   # Usage: vagrant scp <some_local_file_or_dir> [vm_name]:<somewhere_on_the_vm>
   # vagrant plugin install vagrant-scp
 
-brew install pkgconfig
-brew install p7zip
-brew install bazel
-brew install sdl2
-brew install qt5
-brew install cmake
-brew install boost
-brew install git
-brew install python
-brew install neovim/neovim/neovim
-brew install mvim
-brew install vim
-brew install tmux
-brew install tmate
-brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
-brew install jq
-brew install ag
-brew install htop
-brew install tree
-brew install autojump
-brew install reattach-to-user-namespace
-brew install wget
-brew install couchdb
-brew install rbenv
-brew install httpie
-brew install lynx
+brew install pkgconfig p7zip bazel sdl2 qt5 cmake boost git python
+brew install neovim/neovim/neovim mvim vim tmux tmate
+brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype \
+  --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
+brew install docker-machine docker jq ag htop tree autojump
+brew install reattach-to-user-namespace wget couchdb rbenv httpie lynx vala meson
+brew install premake libsoup fcgi gtk+3 libgee allegro little-cms
+
+# install https://sourceforge.net/projects/libmng/files/libmng-devel/2.0.3
+brew install emscripten groonga imagemagick readline
+brew install libjpeg zeromq graphicsmagick openssl
+
+# force link of readline from brew
+brew link readline --force
+
+# remove gnuplot if installed and install from brew with flags
+brew list -1 | grep -q "^gnuplot\$" && brew remove gnuplot
+brew install gnuplot --with-wxmac --with-cairo --with-pdflib-lite \
+  --with-x11 --without-lua
+
+brew install qt || true
+
+# Install torch for lua development
+# Follow directions for setup
+# https://github.com/torch/distro.git
+# Then install any additional packages:
+# luarocks install moonscript
+# install nginx with lua support, set misc module provides `set_by_lua`
+brew install homebrew/nginx/nginx-full --with-lua-module --with-set-misc-module
+
+# Install the maven version manager
+brew install mvnvm
+
+# Install leiningen for managing clojure projects
+brew install leiningen
+
+# Install gemfire
+brew tap pivotal/tap && brew install gemfire
 
 # Lets us uninstall python packages
 easy_install pip
