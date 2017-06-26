@@ -22,6 +22,15 @@ export DEVKITPRO="/opt/devkitpro/"
 export DEVKITARM="/opt/devkitpro/devkitARM/"
 export CTRULIB="/opt/devkitpro/libctru/"
 
+# Docker: Initialize our `docker-machine` environment if not started
+# ------: Then set up the shell so the `docker` command uses it.
+[[ -x "$(command -v docker-machine)" ]] \
+  && [[ $(docker-machine status default 2> /dev/null) != 'Running' ]] \
+  && echo "Please be patient: Initializing your default docker vm..." \
+  && docker-machine start default > /dev/null 2>&1 \
+  && eval $(docker-machine env default) > /dev/null 2>&1 \
+  || eval $(docker-machine env default) > /dev/null 2>&1 \
+
 # Path to my dotties
 export MY_DOTTIES_DIR="$HOME/.dotties/packages/${GITHUB_USERNAME}-dotties"
 

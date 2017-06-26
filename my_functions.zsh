@@ -10,6 +10,9 @@ alias sl="ls"
 # Make `tree` ignore node_modules
 alias tree="tree -I 'node_modules'"
 
+# Make `mvn archetype:generate` be `mvn-init`
+alias mvn-init="mvn archetype:generate"
+
 # First mvim run should become a listen server for any file open requests
 function run_mvim {
   mvim --serverlist | grep -q VIM
@@ -102,24 +105,37 @@ function cd () {
 
 # -- Begin Prompt configuration --
 
-# Colors - Color White, etc
-export CB=$'%{$fg_bold[blue]%}'
-export CBB=$'%{$fg_bold[blue]%}'
-export CBG=$'%{$fg_bold[green]%}'
-export CW=$'%{$fg[white]%}'
+# Returns $1 as the current branch
+function getGitBranch {
+  local fullRefsHead
+  fullRefsHead=`git symbolic-ref HEAD 2> /dev/null`
 
-# Reset
-export RS=$'%{$reset_color%}'
+  # If we were able to run the git command with success
+  [[ $? == 0 ]] \
+    && eval "$1='${fullRefsHead//refs\/heads\//}'" \
+    || eval "$1=''";
+}
 
-# Newline
-export NL=$'\n'
-
-# Modify the prompt to contain git branch name if applicable
+# Returns the git status portion of the prompt in $3
 function git_info () {
-  current_branch=$(git current-branch 2> /dev/null)
-  if [[ -n $current_branch ]]; then
-    echo " ${CBG}${current_branch}${RS}"
-  fi
+  local gitBranch
+  getGitBranch gitBranch
+
+  # Hotfix: Chromium repo is too big to check if dirty
+  case `pwd` in
+    # If the current folder we are in is part of `Chromium`
+    # Use our function to determine branch w/out status
+    (*Chromium/src*)
+      eval "$3='[ ${1}${gitBranch}${2} ]'" \
+      ;;
+    # If current directory is initialized with git
+    # Let our zsh command determine branch and status
+    (*)
+      [[ -n $gitBranch ]] \
+        && eval "$3='[ ${1}${gitBranch}$(parse_git_dirty)${2} ]'" \
+        || eval "$3=''"
+      ;;
+  esac
 }
 
 # Enable prompt substitution
@@ -127,40 +143,43 @@ setopt promptsubst
 
 # Executed before each prompt print
 function precmd () {
-  # Where Local and Where Remote
-  export WL=$'%{$fg_bold[green]%}[LOCAL] '
-  export WR=$'%{$fg_bold[green]%}%n@%m '
+  # Set color variables
+  local CB=$'%{$fg_bold[blue]%}'
+  local CBB=$'%{$fg_bold[blue]%}'
+  local CBG=$'%{$fg_bold[green]%}'
+  local CW=$'%{$fg[white]%}'
+
+  # Reset
+  local RS=$'%{$reset_color%}'
+
+  # Newline
+  local NL=$'\n'
 
   # Datetime print
-  export DT=$'%D{[%X]} '
+  local DT=$'%D{[%X]} '
 
   # Folder print
-  export FP=$'[%3/] '
+  local FP=$'[%3/] '
 
   # Git Prompt print
-  export GP=$'$(git_prompt_info) '
+  local GP
+  git_info $CBG $RS GP
 
   # Command Prompt
-  export CP="${CB}->${CBB} %# ${RS}"
+  local CP="${CB}->${CBB} %# ${RS}"
 
   # Main Prompt
-  export MP="${CB}${DT}${RS}${GP}${NL}${CW}${FP}${NL}${CP}"
-}
+  local MP="${CB}${DT}${RS}${GP}${NL}${CW}${FP}${NL}${CP}"
 
-# If we are on our own computer show [LOCAL]
-function remote_vs_local_display () {
-  if [[ ${(%):-%m} = "Adams-MBP" ]]; then
-    PS1="${MP}"
-  else
-    PS1="${MP}"
-  fi
+  # Set Prompt
+  PS1="${MP}"
 }
 
 # Enable precmd functions
 typeset -a precmd_functions
 
-# Add my custom function to the list of precmd functions
-precmd_functions+=(remote_vs_local_display)
+# Add a custom function to the list of precmd functions
+#precmd_functions+=()
 
 # -- End Prompt configuration --
 
@@ -175,6 +194,99 @@ function getip {
 function chkport {
   # Checks what application if any is listening on a port
   lsof -n -i:$1 | grep LISTEN
+}
+
+# Edit nginx Servers
+function nedit {
+  cd /usr/local/etc/nginx/servers && \
+  $VIM_PATH && \
+  cd -
+}
+
+function nreload {
+  brew services restart nginx-full
+}
+
+function nstart {
+  brew services start nginx-full
+}
+
+function nstop {
+  brew services stop nginx-full
+}
+
+function nluapkg {
+  cd /usr/local/Cellar/luajit/2.0.4_3/share/luajit-2.0.4 && \
+  $VIM_PATH && \
+  cd -
+}
+
+function nluapkgb {
+  cd /usr/local/Cellar/luajit/2.0.4_3/share/luajit-2.0.4
+}
+
+function nluapkgc {
+  echo "/usr/local/Cellar/luajit/2.0.4_3/share/luajit-2.0.4" | pbcopy
+}
+
+function nconf {
+  cd /usr/local/etc/nginx && \
+  $VIM_PATH && \
+  cd -
+}
+
+function nconfb {
+  _l=`pwd`
+  cd /usr/local/etc/nginx
+}
+
+function nconfc {
+  echo "/usr/local/etc/nginx" | pbcopy
+}
+
+function nhome {
+  cd /usr/local/Cellar/nginx-full/1.12.0 && \
+  $VIM_PATH && \
+  cd -
+}
+
+function nhomeb {
+  _l=`pwd`
+  cd /usr/local/Cellar/nginx-full/1.12.0
+}
+
+function nhomec {
+  echo "/usr/local/Cellar/nginx-full/1.12.0" | pbcopy
+}
+
+function nlog {
+  cd /usr/local/var/log/nginx && \
+  $VIM_PATH && \
+  cd -
+}
+
+function nlogb {
+  _l=`pwd`
+  cd /usr/local/var/log/nginx
+}
+
+function nlogc {
+  echo "/usr/local/var/log/nginx" | pbcopy
+}
+
+function nwww {
+  cd /usr/local/var/www && \
+  $VIM_PATH && \
+  cd -
+}
+
+function nwwwb {
+  _l=`pwd`
+  cd /usr/local/var/www
+}
+
+function nwwwc {
+  echo "/usr/local/var/www" | pbcopy
 }
 
 # If dotties is installed then make some functions
