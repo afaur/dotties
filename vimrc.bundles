@@ -11,7 +11,7 @@ Plug 'moll/vim-node'
 Plug 'benmills/vimux'
 Plug 'mattn/emmet-vim'
 Plug 'lervag/vimtex'
-Plug 'Valloric/YouCompleteMe'
+Plug 'vim-scripts/VimClojure'
 
 " Syntax Highlighting
 Plug 'vim-scripts/applescript.vim'
@@ -25,9 +25,12 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'digitaltoad/vim-pug'
 Plug 'tikhomirov/vim-glsl'
 Plug 'wavded/vim-stylus'
-Plug 'pangloss/vim-javascript'
+Plug 'afaur/vim-javascript'
 Plug 'neoclide/vim-jsx-improve'
 Plug 'keith/swift.vim'
+Plug 'GrAndSE/genie-script-vim-syntax'
+Plug 'leafo/moonscript-vim'
+Plug 'flowtype/vim-flow'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'

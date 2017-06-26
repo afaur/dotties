@@ -10,6 +10,7 @@ colorscheme jellybeans
 highlight Normal guibg=black guifg=white
 
 au BufRead,BufNewFile *.es6 setfiletype javascript
+autocmd BufRead,BufNewFile *.gs set filetype=genie
 
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
@@ -104,7 +105,7 @@ nnoremap <leader>W :w ! sudo tee %<CR>
 nnoremap <C-U> :source $MYVIMRC<CR>
 
 " Default tab settings
-nnoremap <C-T> :set ts=2 sts=2 sw=2 expandtab smarttab<CR>
+nnoremap <C-T> :set ts=2 sts=2 sw=2 expandtab smarttab<CR>:retab<CR>
 
 " CSS selectors
 nnoremap <C-S> :'<,'>s:  .*:& !important:g
@@ -140,3 +141,17 @@ nnoremap <leader>m :call MuxSend()<CR>
 
 " Configure youcompleteme
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
+
+" Add devkitarm headers to our include paths
+"let g:syntastic_c_include_dirs = ['/opt/devkitpro/libnds/include/', '/opt/devkitpro/libgba/include/', '/opt/devkitpro/libctru/include/', '/opt/devkitpro/libmirko/include/']
+"let g:syntastic_cpp_include_dirs = ['/opt/devkitpro/libnds/include/', '/opt/devkitpro/libgba/include/', '/opt/devkitpro/libctru/include/', '/opt/devkitpro/libmirko/include/']
+
+let g:syntastic_html_tidy_quiet_messages = { "level": "warnings" }
+
+" enable syntastic for javascript files
+let g:syntastic_javascript_checkers = ['eslint', 'flow']
+let g:syntastic_javascript_flow_exe = 'flow'
+let g:javascript_plugin_flow = 1
+
+let g:vimclojure#HighlightBuiltins = 1
+let g:vimclojure#ParenRainbow = 1

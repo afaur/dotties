@@ -51,3 +51,6 @@ fi
 
 # Use function for mvim (clientserver)
 [[ -f $MACVIM_VIM_PATH ]] && alias mvim="run_mvim"
+
+# Handle torch (luajit/luarocks/trepl)
+[[ -f $HOME/torch/install/bin/torch-activate ]] && source $HOME/torch/install/bin/torch-activate
