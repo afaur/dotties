@@ -1,0 +1,5 @@
+#!/bin/bash
+
+git fetch $1
+# argument $1 should be remote name
+for tag in `git tag`; do git tag -d $tag; git push $1 :refs/tags/$tag; done

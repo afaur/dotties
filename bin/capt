@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Commit and push tags (overrides existing tags)
+# Takes tagname as argument
+~/.bin/rmtags origin
+
+git add .appveyor.yml && git commit -m 'WIP'
+
+git tag -s $1 -m 'test' && git push origin $1

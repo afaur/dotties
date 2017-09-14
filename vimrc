@@ -9,8 +9,13 @@ colorscheme jellybeans
 
 highlight Normal guibg=black guifg=white
 
+au BufRead,BufNewFile *.conf setfiletype json
+au BufRead,BufNewFile *.block setfiletype pug
+au BufRead,BufNewFile *.list setfiletype pug
+
 au BufRead,BufNewFile *.es6 setfiletype javascript
 autocmd BufRead,BufNewFile *.gs set filetype=genie
+autocmd BufRead,BufNewFile .babelrc set filetype=json
 
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
@@ -87,7 +92,7 @@ set number
 set numberwidth=5
 
 " ESLint
-let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_javascript_checkers = ['eslint']
 
 " Mouse support
 set mouse=a
@@ -148,10 +153,31 @@ let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
 let g:syntastic_html_tidy_quiet_messages = { "level": "warnings" }
 
-" enable syntastic for javascript files
-let g:syntastic_javascript_checkers = ['eslint', 'flow']
-let g:syntastic_javascript_flow_exe = 'flow'
-let g:javascript_plugin_flow = 1
+" Disable Flow by default
+let g:flow#enable = 0
+let g:syntastic_javascript_checkers = []
+
+" Enable syntastic for javascript files
+function! FlowEnable()
+  if search("@flow", 'W') != 0
+    let g:flow#enable = 1
+    let g:flow#autoclose = 1
+    let g:syntastic_javascript_checkers = ['flow']
+    let g:syntastic_javascript_flow_exe = 'flow'
+  endif
+endfunction
+
+function! FlowDisable()
+  let g:flow#enable = 0
+  let g:flow#autoclose = 0
+  let g:syntastic_javascript_checkers = []
+  let g:syntastic_javascript_flow_exe = ''
+endfunction
 
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
+
+au BufReadPost *.js call FlowEnable()
+
+" Plug 'wesQ3/vim-windowswap'
+" Swap windows using <leader>ww

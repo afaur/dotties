@@ -94,7 +94,7 @@ brew install pkgconfig p7zip bazel sdl2 qt5 cmake boost git python
 brew install neovim/neovim/neovim mvim vim tmux tmate
 brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype \
   --with-libass --with-libvorbis --with-libvpx --with-opus --with-x265
-brew install docker-machine docker jq ag htop tree autojump
+brew install docker-machine docker docker-compose jq ag htop tree autojump
 brew install reattach-to-user-namespace wget couchdb rbenv httpie lynx vala meson
 brew install premake libsoup fcgi gtk+3 libgee allegro little-cms
 

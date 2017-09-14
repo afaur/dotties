@@ -19,18 +19,27 @@ Plug 'elixir-lang/vim-elixir'
 Plug 'rust-lang/rust.vim'
 Plug 'derekwyatt/vim-scala'
 Plug 'kchmck/vim-coffee-script'
-Plug 'afaur/vaxe'
+" Plug 'afaur/vaxe'
 Plug 'briancollins/vim-jst'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'digitaltoad/vim-pug'
 Plug 'tikhomirov/vim-glsl'
 Plug 'wavded/vim-stylus'
-Plug 'afaur/vim-javascript'
-Plug 'neoclide/vim-jsx-improve'
-Plug 'keith/swift.vim'
+Plug 'toyamarinyon/vim-swift'
 Plug 'GrAndSE/genie-script-vim-syntax'
 Plug 'leafo/moonscript-vim'
+Plug 'cespare/vim-toml'
+
+" HTML
+" Plug 'othree/html5.vim'
+Plug 'tpope/vim-haml'
+Plug 'digitaltoad/vim-pug'
+Plug 'hail2u/vim-css3-syntax'
+
+" Javascript
+Plug 'elzr/vim-json'
+Plug 'afaur/vim-javascript'
 Plug 'flowtype/vim-flow'
+Plug 'posva/vim-vue'
 
 " From dotfiles
 Plug 'tpope/vim-fugitive'

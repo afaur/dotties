@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Copies current directory path to clipboard
+echo $(pwd) | pbcopy

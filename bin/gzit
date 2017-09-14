@@ -1,0 +1,5 @@
+#!/bin/bash
+
+FN=$1
+
+cp "$FN.min.js" "$FN.min.js-" && gzip -8 "$FN.min.js-" && mv "$FN.min.js-.gz" "$FN.min.js.gz"

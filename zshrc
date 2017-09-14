@@ -28,6 +28,9 @@ fi
 # If air sdk is installed then add the bin directory to the path
 [[ -f $HOME/.AIRSDK/bin/adl ]] && export PATH="$HOME/.AIRSDK/bin:$PATH"
 
+# If Qt sdk is installed then add the bin directory to the path
+[[ -f /usr/local/opt/qt/bin/qmake ]] && export PATH="/usr/local/opt/qt/bin:$PATH"
+
 # If virtualenvwrapper installed source it
 [[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
