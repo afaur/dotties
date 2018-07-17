@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if [[ $1 == "all" ]]; then
+    # Iterates all docker container names: 1) disable restart, 2) kill, 3) remove
+  for i in $(docker ps --all | awk '{if(NR>1) print $NF}'); do docker rm $i; done
+  for i in $(docker ps --all | awk '{if(NR>1) print $NF}'); do docker update --restart=no $i && docker kill $i && docker rm $i; done
+else
+  # Takes id of container to disable restart, kill, and remove
+  (T=$1; docker update --restart=no $1 && docker kill $T && docker rm $T)
+fi

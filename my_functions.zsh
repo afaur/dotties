@@ -1,17 +1,44 @@
-# Make `ll` to use the exa command (exa binary only compiled for mac osx sierra)
-alias ll="~/.bin/exa"
+# Make `l` and others use exa command
+# When showing hidden files should always hide .DS_Store
+alias l="exa --header --long -a --color=always | grep -vE '\.DS_Store$' --color=always"
+alias ll="exa --header --long"
+alias ls="exa"
+alias la="l"
+
+# Make `ds` use docker ps --all
+alias ds="docker ps --all"
+
+# Make `dn` use docker network ls
+alias dn="docker network ls"
+
+# Make `dv` use docker volume ls
+alias dv="docker volume ls"
 
 # Make `cls` be a shortcut to running `clear`
 alias cls="clear"
 
-# Make `sl` become `ls`
+# Swap letters list
 alias sl="ls"
+alias al="l"
+
+# Swap letters docker ps --all
+alias sd="docker ps --all"
+
+# Swap letters docker network ls
+alias nd="docker network ls"
+
+# Swap letters docker volume ls
+alias vd="docker volume ls"
 
 # Make `tree` ignore node_modules
 alias tree="tree -I 'node_modules'"
 
 # Make `mvn archetype:generate` be `mvn-init`
 alias mvn-init="mvn archetype:generate"
+
+# Vim alias
+alias v="vim"
+alias vi="vim"
 
 # First mvim run should become a listen server for any file open requests
 function run_mvim {
@@ -26,6 +53,8 @@ function run_mvim {
     mvim --servername VIM "$@"
   fi
 }
+
+urldecode() { : "${*//+/ }"; echo -e "${_//%/\\x}"; }
 
 # Write our individual settings to the gitconfig file
 function dgitconfig () {
@@ -100,7 +129,11 @@ function setnvm () {
 
 # Override cd to also run our nvm checker
 function cd () {
-  builtin cd "$@" && setnvm;
+ if [ "$NVMUSE" == "1" ]; then
+   builtin cd "$@" && setnvm;
+ else
+   builtin cd "$@";
+ fi
 }
 
 # -- Begin Prompt configuration --

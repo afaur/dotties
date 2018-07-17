@@ -10,6 +10,9 @@ export PATH="$HOME/.bin:$PATH"
 # Tell zsh where oh-my-zsh is
 export ZSH="$HOME/.oh-my-zsh"
 
+# Set nvm path variable
+export NVM_DIR="$HOME/.nvm"
+
 # Tell oh-my-zsh which plugins should be used
 export plugins=(rbenv nvm autojump)
 
@@ -21,6 +24,17 @@ export PATH="$PATH:/opt/devkitpro/devkitARM/bin"
 export DEVKITPRO="/opt/devkitpro/"
 export DEVKITARM="/opt/devkitpro/devkitARM/"
 export CTRULIB="/opt/devkitpro/libctru/"
+
+# Config virtualenv wrapper folder (python pip3 virtualenvwrapper)
+export WORKON_HOME=$HOME/.virtual-envs
+#export PROJECT_HOME=$HOME/code
+export VIRTUALENV_PYTHON=$(which python3)
+export VIRTUALENVWRAPPER_PYTHON=$(which python3)
+export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+
+# If virtualenvwrapper installed source it
+[[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
 
 # Docker: Initialize our `docker-machine` environment if not started
 # ------: Then set up the shell so the `docker` command uses it.

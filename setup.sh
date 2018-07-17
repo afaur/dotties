@@ -97,6 +97,7 @@ brew install ffmpeg --with-fdk-aac --with-sdl2 --with-freetype \
 brew install docker-machine docker docker-compose jq ag htop tree autojump
 brew install reattach-to-user-namespace wget couchdb rbenv httpie lynx vala meson
 brew install premake libsoup fcgi gtk+3 libgee allegro little-cms
+brew install go
 
 # install https://sourceforge.net/projects/libmng/files/libmng-devel/2.0.3
 brew install emscripten groonga imagemagick readline

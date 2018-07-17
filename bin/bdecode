@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Takes a file as first input argument that should contain base64 encoded contents
+# Outputs a file named as second input argument to store decoded contents
+cat $1 | base64 -D > $2

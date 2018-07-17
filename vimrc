@@ -7,9 +7,10 @@ let maplocalleader = "\\"
 syntax on
 colorscheme jellybeans
 
-highlight Normal guibg=black guifg=white
+highlight Normal guibg=black guifg=white ctermbg=black
+hi specialKey ctermbg=black ctermfg=17
 
-au BufRead,BufNewFile *.conf setfiletype json
+au BufRead,BufNewFile *.conf setfiletype nginx
 au BufRead,BufNewFile *.block setfiletype pug
 au BufRead,BufNewFile *.list setfiletype pug
 
@@ -99,6 +100,7 @@ set mouse=a
 
 " Enable the list of buffers
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_section_c = '%F'
 
 " Save and close a file without quitting vim
 nnoremap <leader>w :w<bar>bd<CR>
@@ -111,6 +113,12 @@ nnoremap <C-U> :source $MYVIMRC<CR>
 
 " Default tab settings
 nnoremap <C-T> :set ts=2 sts=2 sw=2 expandtab smarttab<CR>:retab<CR>
+
+" gf that selects inside single quotes before running
+nnoremap <leader>f vi'gf
+
+" Toggle syntastic checker
+nnoremap <C-M> :SyntasticToggleMode<CR>
 
 " CSS selectors
 nnoremap <C-S> :'<,'>s:  .*:& !important:g
@@ -142,16 +150,24 @@ function! MuxSend()
   call VimuxRunCommand(command)
 endfunction
 
+nnoremap <leader>c :VimuxCloseRunner<CR>
+nnoremap <leader>z :VimuxZoomRunner<CR>
 nnoremap <leader>m :call MuxSend()<CR>
 
 " Configure youcompleteme
 let g:ycm_global_ycm_extra_conf = '~/.ycm_extra_conf.py'
 
-" Add devkitarm headers to our include paths
+" Add devkitarm headers to include paths
 "let g:syntastic_c_include_dirs = ['/opt/devkitpro/libnds/include/', '/opt/devkitpro/libgba/include/', '/opt/devkitpro/libctru/include/', '/opt/devkitpro/libmirko/include/']
 "let g:syntastic_cpp_include_dirs = ['/opt/devkitpro/libnds/include/', '/opt/devkitpro/libgba/include/', '/opt/devkitpro/libctru/include/', '/opt/devkitpro/libmirko/include/']
 
 let g:syntastic_html_tidy_quiet_messages = { "level": "warnings" }
+let g:syntastic_cpp_compiler = 'clang++'
+let g:syntastic_cpp_compiler_options = ' -std=c++14'
+let g:syntastic_cpp_config_file = '.vim_syntax'
+
+" Overall path lookup helper (gf)
+:set path=$PWD/**
 
 " Disable Flow by default
 let g:flow#enable = 0
@@ -177,7 +193,30 @@ endfunction
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
 
+" Attempt to fix vue slowness
+let g:vue_disable_pre_processors=1
+
 au BufReadPost *.js call FlowEnable()
 
 " Plug 'wesQ3/vim-windowswap'
 " Swap windows using <leader>ww
+
+" Use black background for window
+" set color for tabs as a subtle color
+" https://jonasjacek.github.io/colors/
+highlight Normal guibg=black guifg=white ctermbg=233
+highlight ColorColumn ctermbg=234
+hi specialKey ctermbg=233 ctermfg=234
+
+" Attempt to fix highlighting of backticks enclosed strings
+" Highlight ES6 template strings
+hi link javaScriptTemplateDelim String
+hi link javaScriptTemplateVar Text
+hi link javaScriptTemplateString String
+
+" Disable syntastic html checkers by default
+let g:syntastic_html_checkers=['']
+let g:indentLine_concealcursor=""
+
+" Concel quotes around keys while not on json line
+let g:vim_json_syntax_conceal = 1

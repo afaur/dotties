@@ -22,6 +22,10 @@ fi
 # If cargo/rust installed source cargo env
 [[ -f $HOME/.cargo/env ]] && source "$HOME/.cargo/env"
 
+# If go installed
+[[ -x $(command -v go) ]] && export GOPATH=$HOME/go && export PATH=$PATH:/usr/local/opt/go/libexec/bin
+[[ -x $(command -v go) ]] && export PATH=$PATH:$GOPATH/bin
+
 # If Haxe is installed then set the haxe std path variable
 [[ -x "$(command -v haxe)" ]] && export HAXE_STD_PATH="/usr/local/lib/haxe/std"
 
@@ -31,9 +35,6 @@ fi
 # If Qt sdk is installed then add the bin directory to the path
 [[ -f /usr/local/opt/qt/bin/qmake ]] && export PATH="/usr/local/opt/qt/bin:$PATH"
 
-# If virtualenvwrapper installed source it
-[[ -f /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
-
 # If rvm installed source it
 [[ -f /etc/profile.d/rvm.sh ]] && source /etc/profile.d/rvm.sh
 
@@ -42,9 +43,10 @@ fi
 [[ -x "$(command -v jenv)" ]] && eval "$(jenv init -)"
 
 # Link my vim files to neo vim if not already linked
-[[ ! -s $HOME/.config/nvim ]] \
-  && ln -s ~/.vim ~/.config/nvim \
-  && ln -s ~/.vimrc ~/.config/nvim/init.vim
+[[ -f $HOME/.config/nvim ]] \
+  && [[ ! -s $HOME/.config/nvim ]] \
+    && ln -s ~/.vim ~/.config/nvim \
+    && ln -s ~/.vimrc ~/.config/nvim/init.vim
 
 # Use latest vim if installed using brew
 [[ -f $VIM_PATH ]] && alias vim=$VIM_PATH
@@ -56,4 +58,4 @@ fi
 [[ -f $MACVIM_VIM_PATH ]] && alias mvim="run_mvim"
 
 # Handle torch (luajit/luarocks/trepl)
-[[ -f $HOME/torch/install/bin/torch-activate ]] && source $HOME/torch/install/bin/torch-activate
+#[[ -f $HOME/torch/install/bin/torch-activate ]] && source $HOME/torch/install/bin/torch-activate
